@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body{
 	background-color: #99ffcc;
 }
@@ -13,3 +14,20 @@ body{
 	height: 148px;
 }*/
 
+=======
+body{
+	background-color: #99ffcc;
+}
+
+#bulb{
+	width: 20px;
+	height: 20px;
+}
+
+/*#image1{
+	padding: 5px;
+	width: 172;
+	height: 148px;
+}*/
+
+>>>>>>> 9ee9647ced2acc110dc175bfe7362ef8a84a9d6b
