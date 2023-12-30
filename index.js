@@ -35,7 +35,7 @@ function update(imageID) {
     finish = finish + visited[key];
     // console.log(finish,visited[key])
 }
-	console.log(finish)
+	// console.log(finish)
 	if(finish==9) {
 		console.log("finished")
 		document.getElementById("finish").innerHTML = "GAME FINISHED";
