@@ -11,18 +11,25 @@
 	<img id="bulb" src="download.png">
 </button>
 <br>
-<div id="test">
-	<script type="text/javascript">
-		for (var j = 1; j<=9; j++) {
-			if(j%3==0)
-			document.write("<img id='image"+j+"' src='blank.png' onclick='update(image"+j+")' style='padding:5px' width='172px' height='148px' ><br>")
-		    else
-			document.write("<img id='image"+j+"' src='blank.png' onclick='update(image"+j+")' style='padding:5px' width='172px' height='148px' >")
-		}
-	</script>
+
+<div class="row">
+	<div class="column">
+		<div id="test">
+			<script type="text/javascript">
+				for (var j = 1; j<=9; j++) {
+					if(j%3==0)
+					document.write("<img id='image"+j+"' src='blank.png' onclick='update(image"+j+")' style='padding:5px' width='172px' height='148px' ><br>")
+				    else
+					document.write("<img id='image"+j+"' src='blank.png' onclick='update(image"+j+")' style='padding:5px' width='172px' height='148px' >")
+				}
+			</script>
+		</div>
+	</div>
+	<div class="column"></div>
 </div>
+
 <hr>
-<div id=status>
+<div id="status">
 	<p id="finish"></p>
 </div>
 <script type="text/javascript" src="index.js"></script>

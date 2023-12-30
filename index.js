@@ -1,4 +1,4 @@
-let val = ['black','white']
+let val = ['black','#99ffcc']
 let docs = ['x.png','o.png']
 let i = 0;
 let k = 0;
