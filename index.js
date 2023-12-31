@@ -61,19 +61,20 @@ function check_win(array){
 
 function update(imageID) {
 	var im=document.getElementById(imageID.id)
-	if(k<9 && result==0) im.src = docs[k%2];
-	k=k+1;
+	if( result==0 && !visited[imageID.id]) im.src = docs[k%2];
+	
 	if(!visited[imageID.id]) {
+		k=k+1;
 		visited[imageID.id]=1;
 		visited_color[imageID.id]=(k%2)+5;
-	}
+	
 	result = check_win(visited_color)
 	for (var key in visited) {
     	finish = finish + visited[key];
     }
     
-	if(k<9 && result==0) document.getElementById("next_move").src = docs[k%2];
-	
+	if(k<9 && result==0 ) document.getElementById("next_move").src = docs[k%2];
+	}
 
 	if(finish==9 || result==2 || result ==3) {
 		if(result==2) document.getElementById("finish").innerHTML = "GAME FINISHED <br> KATA wins";
