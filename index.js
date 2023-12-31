@@ -1,4 +1,4 @@
-let val = ['white','black']
+let val = ['white','#666666']
 let docs = ['x.png','o.png']
 let i = 0;
 let k = 0;
@@ -27,8 +27,9 @@ let visited_color = { 'image1':0,
 function change_bg() {
 
 	const body=document.querySelector('body')
-	body.style.backgroundColor = val[i%2];
 	i=i+1;
+	body.style.backgroundColor = val[i%2];
+	document.getElementById("finish").style.color=val[(i+1)%2];
 }
 
 function check_win(array){

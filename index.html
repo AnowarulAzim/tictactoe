@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>TicTacToe</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
 <button onclick="change_bg()">
@@ -19,16 +20,16 @@
 				for (var j = 1; j<=9; j++) {
 					if(j%3==0)
 					// document.write("<img id='image"+j+"' src='blank.png' onclick='update(image"+j+")' style='padding:5px' width='172px' height='148px' ><br>")
-				    document.write("<img id='image"+j+"' src='blank.png' onclick='update(image"+j+")' style='padding:5px' width='12%' height='12%' ><br>")
+				    document.write("<img id='image"+j+"' src='blank.png' onclick='update(image"+j+")' style='padding:5px' width='20%' height='20%' ><br>")
 				    else
 					// document.write("<img id='image"+j+"' src='blank.png' onclick='update(image"+j+")' style='padding:5px' width='172px' height='148px' >")
-				    document.write("<img id='image"+j+"' src='blank.png' onclick='update(image"+j+")' style='padding:5px' width='12%' height='12%' >")
+				    document.write("<img id='image"+j+"' src='blank.png' onclick='update(image"+j+")' style='padding:5px' width='20%' height='20%' >")
 				}
 			</script>
 		</div>
 	</div>
 	<div class="column">
-		<img id="next_move" style='padding:5px' width='12%' height='24%'>
+		<img id="next_move" style='padding:5px' width='20%' height='30%'>
 	</div>
 </div>
 
