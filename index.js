@@ -14,7 +14,8 @@ let visited = { 'image1':0,
 				'image8':0,
 				'image9':0
 			}
-let visited_color = { 'image1':0,
+let visited_color = { 
+	                'image1':0,
 					'image2':0,
 					'image3':0,
 					'image4':0,
@@ -30,6 +31,8 @@ function change_bg() {
 	i=i+1;
 	body.style.backgroundColor = val[i%2];
 	document.getElementById("finish").style.color=val[(i+1)%2];
+	document.getElementById("nav_home").style.color=val[(i+1)%2];
+	document.getElementById("nav_about").style.color=val[(i+1)%2];
 }
 
 function check_win(array){
