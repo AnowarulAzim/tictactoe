@@ -1,5 +1,5 @@
 let val = ['white','#666666']
-let docs = ['x.png','o.png']
+let docs = ['images/x.png','images/o.png']
 let i = 0;
 let k = 0;
 let finish=0;

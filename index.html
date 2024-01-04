@@ -4,19 +4,19 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>TicTacToe</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
 <body>
 	<div>
 		<nav>
 			<ul class="nav_bar">
 				<li class="nav_item" id="nav_home"><a href="index.html">Home</a></li>
-				<li class="nav_item" id="nav_about"><a href="keytyping.html">Typing Master</a></li>
+				<li class="nav_item" id="nav_about"><a href="layout/keytyping.html">Typing Master</a></li>
 			</ul>
 		</nav>
 		<button class="color_mode" onclick="change_bg()">
-			<img id="bulb" src="download.png">
+			<img id="bulb" src="images/download.png">
 		</button>
 	</div>
 
@@ -29,10 +29,10 @@
 				for (var j = 1; j<=9; j++) {
 					if(j%3==0)
 					// document.write("<img id='image"+j+"' src='blank.png' onclick='update(image"+j+")' style='padding:5px' width='172px' height='148px' ><br>")
-				    document.write("<img id='image"+j+"' src='blank.png' onclick='update(image"+j+")' style='padding:5px' width='20%' height='20%' ><br>")
+				    document.write("<img id='image"+j+"' src='images/blank.png' onclick='update(image"+j+")' style='padding:5px' width='20%' height='20%' ><br>")
 				    else
 					// document.write("<img id='image"+j+"' src='blank.png' onclick='update(image"+j+")' style='padding:5px' width='172px' height='148px' >")
-				    document.write("<img id='image"+j+"' src='blank.png' onclick='update(image"+j+")' style='padding:5px' width='20%' height='20%' >")
+				    document.write("<img id='image"+j+"' src='images/blank.png' onclick='update(image"+j+")' style='padding:5px' width='20%' height='20%' >")
 				}
 			</script>
 		</div>
@@ -46,6 +46,6 @@
 <div id="status">
 	<p id="finish"></p>
 </div>
-<script type="text/javascript" src="index.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>
