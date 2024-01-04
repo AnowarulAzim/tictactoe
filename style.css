@@ -32,3 +32,7 @@ float: right;
 	padding: 5px;
 	color: rgb(197, 101, 101);
 }
+
+.nav_item a{
+	text-decoration: none;
+}
