@@ -2,7 +2,7 @@ const pages=['Home','About','Contact']
 // Create a new unordered list element
 var unorderedList = document.createElement('ul');
 
-console.log(unorderedList)
+// console.log(unorderedList)
 // Create list items and append them to the unordered list
 for (var i = 0; i < pages.length ; i++) {
   var listItem = document.createElement('li');

@@ -1,0 +1,112 @@
+let n=-1;
+var hours_start;
+var minutes_start;
+var seconds_start;
+var seconds_result;
+var hours=0 ;//= now.getHours();
+var minutes = 0;//now.getMinutes();
+var counterInterval;
+
+function update(from_key){
+    
+    // Get the paragraph element
+var paragraph = document.getElementById('paragraph');
+
+// Extract the text content of the paragraph
+var paragraphText = paragraph.textContent || paragraph.innerText;
+// Tokenize the content into words (split by whitespace)
+var words = paragraphText.split(/\s+/);
+// Count the number of words
+var wordCount = words.length;
+var max_len = paragraphText.length;
+if(n==max_len+1) {
+    clearInterval(counterInterval);
+    result_wpm(wordCount);
+    return;
+}
+// Check if the text has at least 10 characters
+
+    // Create a span element to wrap the 10th character
+    var span = document.createElement('span');
+    span.className = 'highlight'; // Add a class for styling
+    span.textContent = paragraphText.charAt(n-1); // JavaScript uses zero-based indexing
+    // console.table([span.textContent,from_key])
+    // Replace the 10th character with the span
+    paragraph.innerHTML = paragraphText.substring(0, n-1) + span.outerHTML + paragraphText.substring(n);
+    n=n+1;
+}
+
+function start(button){
+    
+    button.blur();
+    var paragraphElement = document.getElementById('paragraph');
+    var spanElement = paragraphElement.querySelector('span');
+    // Check if the span element exists within the paragraph
+    if (spanElement) {
+        // Log the DOM representation of the span element
+        // console.log(spanElement.outerHTML);
+        spanElement.className="";
+    }
+    var resultElement = document.getElementById('result');
+    if(resultElement){
+        resultElement.textContent = "";
+    }
+
+    // initial time
+    var now = new Date();
+    hours_start = now.getHours();
+    minutes_start = now.getMinutes();
+    seconds_start = now.getSeconds();
+    // Update the clock every second (1000 milliseconds)
+    counterInterval = setInterval(updateClock, 1000);
+
+
+    n = 1;
+}
+
+    // Add an event listener for the "keydown" event on the document
+    document.addEventListener('keydown', function (event) {
+
+        if(event.key ==='Backspace'){
+            // console.log('Backspace key pressed:', event.key);
+            if(n<=2) n=1;
+            else n=n-2;
+            update(event.key);
+        }
+        else if(event.key != 'Shift') update(event.key);
+    });
+
+    function updateClock() {
+        var currentTimeElement = document.getElementById('currentTime');
+        var now = new Date();
+        
+        var seconds = now.getSeconds();
+
+        if(seconds-seconds_start<0) seconds = seconds-seconds_start+60;
+        else seconds = seconds-seconds_start;
+        seconds_result = seconds;
+        // Format the time as HH:MM:SS
+        var formattedTime = hours + ':' + addLeadingZero(minutes) + ':' + addLeadingZero(seconds);
+
+        // Update the content of the currentTimeElement
+        currentTimeElement.textContent = formattedTime;
+
+        if(seconds==59) minutes=minutes+1;
+        if(minutes==59) hours=hours+1;
+        
+    }
+
+    // Function to add a leading zero to single-digit numbers
+    function addLeadingZero(number) {
+        return number < 10 ? '0' + number : number;
+    }
+
+    function result_wpm(wordCount){
+        var paragraph = document.getElementById('result');
+        
+        var wpm =60/(hours*60*60+minutes*60+seconds_result)*wordCount; 
+        paragraph.textContent = `Word Per Minute :: ${wpm.toFixed(3)}`;
+        console.log(wpm.toFixed(3));
+    }
+
+

@@ -21,3 +21,37 @@ li a {
 li a:hover {
   background-color: #111111;
 }
+
+#paragraph{
+  font-size: 30px;
+  font-family: 'Times New Roman', Times, serif;
+  padding: 20px;
+  border: 2px solid black;
+}
+
+.highlight {
+  background-color: yellow;  /* Customize the highlighting style */
+  font-size: 30px;
+}
+
+#btn-grp{
+  padding: 5px;
+  display: flex;
+  align-items: flex-start;
+  
+}
+#btn-grp btn{
+
+}
+
+#currentTime{
+  font-size: 40px;
+  color: #d63d3d;
+}
+
+#result{
+  font-size: 60px;
+  color: #8602a4;
+  font-style: italic;
+  
+}
