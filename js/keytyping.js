@@ -91,7 +91,7 @@ function start(button){
 
     // Add an event listener for the "keydown" event on the document
     document.addEventListener('keydown', function (event) {
-        var isAllowed = /^[a-zA-Z0-9\s\[\](),'"\/\\:;-\{\}\?`~!@#$%^&*()+=_]$/.test(event.key);
+        var isAllowed = /^[a-zA-Z0-9\s\[\](),'"\/\\:;\{\}\?`~!@#$%^&*-_+=]$/.test(event.key);
         if(event.key ==='Backspace'){
             // console.log('Backspace key pressed:', event.key);
             if(n<=2) n=0;
@@ -151,6 +151,38 @@ function start(button){
         var main_para = document.getElementById('paragraph');
         main_para.innerHTML = text_array[cng_cnt%5];
         cng_cnt=cng_cnt+1;
+
+        // initialize
+        var paragraphElement = document.getElementById('paragraph');
+        var spanElement = paragraphElement.querySelector('span');
+        // Check if the span element exists within the paragraph
+        if (spanElement) {
+            // Log the DOM representation of the span element
+            // console.log(spanElement.outerHTML);
+            spanElement.className="";
+        }
+        var timeElement = document.getElementById('currentTime');
+        // Check if the span element exists within the paragraph
+        if (timeElement) {
+            // Log the DOM representation of the span element
+            // console.log(spanElement.outerHTML);
+            timeElement.textContent="";
+        }
+        var resultElement = document.getElementById('result');
+        if(resultElement){
+            resultElement.textContent = "";
+        }
+    
+        // initial time
+        var now = new Date();
+        hours_start = now.getHours();
+        minutes_start = now.getMinutes();
+        seconds_start = now.getSeconds();
+        minutes = 0;
+        hours = 0;
+        accuracy = 0;
+    
+        n = 1;
 
     }
 
