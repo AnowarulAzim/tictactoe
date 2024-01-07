@@ -8,6 +8,7 @@ var minutes = 0;//now.getMinutes();
 var counterInterval;
 var accuracy=0;
 var max_len;
+var cng_cnt=0;
 
 function update(from_key){
     
@@ -132,4 +133,17 @@ function start(button){
 
     }
 
+
+    function change(){
+        const text_array = ["The Indian Space Research Organisation's inaugural solar mission, Aditya-L1, has reached its destination within the anticipated four-month timeframe, Prime Minister Narendra Modi said yesterday.",
+            "North Korea's military fired over 60 artillery rounds near Yeonpyeong Island yesterday, Seoul's military said, a day after both sides staged live-fire drills in the same area near their contested maritime border.",
+            "A Myanmar rebel alliance has gained control of a key town along the country's volatile northern border with China after weeks of fierce fighting with junta troops, the alliance and the junta said.",
+            "Rescuers and residents sifted through rubble Saturday as their focus turned to recovering bodies and cleaning up rather than finding survivors, five days after a huge earthquake struck central Japan and killed at least 126 people.",
+            "India's Gautam Adani once again became Asia's richest man yesterday, according to a Bloomberg index of the world's billionaires, a year after allegations of market manipulation hammered his conglomerate's stock prices."];
+
+        var main_para = document.getElementById('paragraph');
+        main_para.innerHTML = text_array[cng_cnt%5];
+        cng_cnt=cng_cnt+1;
+
+    }
 
