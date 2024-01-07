@@ -34,15 +34,24 @@ li a:hover {
   font-size: 30px;
 }
 
+.highlight-red{
+  background-color: rgb(218, 50, 50);  /* Customize the highlighting style */
+  font-size: 30px;
+}
+
 #btn-grp{
   padding: 5px;
   display: flex;
-  align-items: flex-start;
-  
+  justify-content: space-between;
+  height: 50px;
 }
-#btn-grp btn{
 
+#btn-grp button{
+  width: 200px;
+  padding: 20px;
+  font-size: 25px;
 }
+
 
 #currentTime{
   font-size: 40px;

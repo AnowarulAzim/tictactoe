@@ -6,6 +6,8 @@ var seconds_result;
 var hours=0 ;//= now.getHours();
 var minutes = 0;//now.getMinutes();
 var counterInterval;
+var accuracy=0;
+var max_len;
 
 function update(from_key){
     
@@ -18,7 +20,7 @@ var paragraphText = paragraph.textContent || paragraph.innerText;
 var words = paragraphText.split(/\s+/);
 // Count the number of words
 var wordCount = words.length;
-var max_len = paragraphText.length;
+max_len = paragraphText.length;
 if(n==max_len+1) {
     clearInterval(counterInterval);
     result_wpm(wordCount);
@@ -29,10 +31,19 @@ if(n==max_len+1) {
     // Create a span element to wrap the 10th character
     var span = document.createElement('span');
     span.className = 'highlight'; // Add a class for styling
-    span.textContent = paragraphText.charAt(n-1); // JavaScript uses zero-based indexing
-    // console.table([span.textContent,from_key])
+    // span.textContent = paragraphText.charAt(n-1); // JavaScript uses zero-based indexing
+    span.textContent = paragraphText.substring(0,n); // JavaScript uses zero-based indexing
+    
     // Replace the 10th character with the span
-    paragraph.innerHTML = paragraphText.substring(0, n-1) + span.outerHTML + paragraphText.substring(n);
+    // paragraph.innerHTML = paragraphText.substring(0, n-1) + span.outerHTML + paragraphText.substring(n);
+    paragraph.innerHTML =  span.outerHTML + paragraphText.substring(n);
+    // console.log(paragraph.innerHTML)
+    if(from_key) {
+        // console.table([paragraphText.charAt(n-1),from_key]);
+        if(from_key != 'Backspace' && paragraphText.charAt(n-1)===from_key) {
+            accuracy = accuracy + 1;
+        }
+    }
     n=n+1;
 }
 
@@ -59,9 +70,11 @@ function start(button){
     seconds_start = now.getSeconds();
     // Update the clock every second (1000 milliseconds)
     counterInterval = setInterval(updateClock, 1000);
-
+    minutes = 0;
+    hours = 0;
 
     n = 1;
+    
 }
 
     // Add an event listener for the "keydown" event on the document
@@ -105,8 +118,12 @@ function start(button){
         var paragraph = document.getElementById('result');
         
         var wpm =60/(hours*60*60+minutes*60+seconds_result)*wordCount; 
-        paragraph.textContent = `Word Per Minute :: ${wpm.toFixed(3)}`;
-        console.log(wpm.toFixed(3));
+        var acc = accuracy/max_len*100;
+        var txt = `Word Per Minute :: ${wpm.toFixed(2)}`+"<br>"+
+                  `Accuracy :: ${acc.toFixed(3)}%`;
+        paragraph.innerHTML = txt;
+        // console.log(wpm.toFixed(3));
+
     }
 
 

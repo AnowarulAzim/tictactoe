@@ -1,4 +1,5 @@
 const pages=['Home','About','Contact']
+const page_href=['../index.html','#about.html','#contact.html']
 // Create a new unordered list element
 var unorderedList = document.createElement('ul');
 
@@ -9,7 +10,7 @@ for (var i = 0; i < pages.length ; i++) {
   var aItem = document.createElement('a');
   aItem.textContent = pages[i];
   // make an array of href to move onto next page
-  aItem.href = '#'+pages[i]+'.html'; 
+  aItem.href = page_href[i]; 
   listItem.appendChild(aItem);
   unorderedList.appendChild(listItem);
 }
