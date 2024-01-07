@@ -91,7 +91,7 @@ function start(button){
 
     // Add an event listener for the "keydown" event on the document
     document.addEventListener('keydown', function (event) {
-        var isAllowed = /^[a-zA-Z0-9\s\[\](),'"\/\\:;]$/.test(event.key);
+        var isAllowed = /^[a-zA-Z0-9\s\[\](),'"\/\\:;-\{\}\?`~!@#$%^&*()+=_]$/.test(event.key);
         if(event.key ==='Backspace'){
             // console.log('Backspace key pressed:', event.key);
             if(n<=2) n=0;
@@ -135,7 +135,7 @@ function start(button){
                   `Accuracy :: ${acc.toFixed(3)}%`;
         paragraph.innerHTML = txt;
         // console.log(wpm.toFixed(3));
-        console.log(max_len,accuracy);
+        // console.log(max_len,accuracy);
 
 
     }
