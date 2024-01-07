@@ -77,6 +77,7 @@ function start(button){
     counterInterval = setInterval(updateClock, 1000);
     minutes = 0;
     hours = 0;
+    accuracy = 0;
 
     n = 1;
     
