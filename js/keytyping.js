@@ -40,9 +40,14 @@ if(n==max_len+1) {
     // console.log(paragraph.innerHTML)
     if(from_key) {
         // console.table([paragraphText.charAt(n-1),from_key]);
-        if(from_key != 'Backspace' && paragraphText.charAt(n-1)===from_key) {
-            accuracy = accuracy + 1;
+        if(from_key != 'Backspace') {
+            if( paragraphText.charAt(n-1)===from_key) accuracy = accuracy + 1;
         }
+        if(from_key === 'Backspace') {
+            if(accuracy<=1) accuracy=1;
+            else accuracy=accuracy-1;
+        }
+        // console.log(accuracy)
     }
     n=n+1;
 }
