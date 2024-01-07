@@ -43,9 +43,14 @@ if(n==max_len+1) {
         // console.table([paragraphText.charAt(n-1),from_key]);
         if(from_key != 'Backspace') {
             if( paragraphText.charAt(n-1)===from_key) accuracy = accuracy + 1;
+            else {
+                span.className = 'highlight-red'; // Add a class for styling
+                span.textContent = paragraphText.charAt(n-1); // JavaScript uses zero-based indexing
+                paragraph.innerHTML = paragraphText.substring(0, n-1) + span.outerHTML + paragraphText.substring(n);
+            }
         }
         if(from_key === 'Backspace') {
-            if(accuracy<=1) accuracy=1;
+            if(accuracy<=0) accuracy=0;
             else accuracy=accuracy-1;
         }
         // console.log(accuracy)
@@ -86,14 +91,14 @@ function start(button){
 
     // Add an event listener for the "keydown" event on the document
     document.addEventListener('keydown', function (event) {
-
+        var isAllowed = /^[a-zA-Z0-9\s\[\](),'"\/\\:;]$/.test(event.key);
         if(event.key ==='Backspace'){
             // console.log('Backspace key pressed:', event.key);
-            if(n<=2) n=1;
+            if(n<=2) n=0;
             else n=n-2;
             update(event.key);
         }
-        else if(event.key != 'Shift') update(event.key);
+        else if(isAllowed) update(event.key);
     });
 
     function updateClock() {
@@ -130,6 +135,8 @@ function start(button){
                   `Accuracy :: ${acc.toFixed(3)}%`;
         paragraph.innerHTML = txt;
         // console.log(wpm.toFixed(3));
+        console.log(max_len,accuracy);
+
 
     }
 
