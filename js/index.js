@@ -31,8 +31,8 @@ function change_bg() {
 	i=i+1;
 	body.style.backgroundColor = val[i%2];
 	document.getElementById("finish").style.color=val[(i+1)%2];
-	document.getElementById("nav_home").style.color=val[(i+1)%2];
-	document.getElementById("nav_about").style.color=val[(i+1)%2];
+	document.getElementById("nav_home").children[0].style.color=val[(i+1)%2];
+	document.getElementById("nav_about").children[0].style.color=val[(i+1)%2];
 }
 
 function check_win(array){
